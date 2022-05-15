@@ -27,8 +27,11 @@ document.querySelector('.botaoDesistir').style.display='none';
 
 
 idBotaoDesistir.addEventListener("click", function() {
-    
-    reiniciarTelaInicial();
+
+    for(var i = 0; i<10;i++)        //zera boneco
+    montagemForca(9-i,'none');
+
+    reiniciarTelaInicial();         //volta a tela inicial
 });
 
 idBotaoIniciar.addEventListener("click", function() {
@@ -48,6 +51,22 @@ idBotaoCancelar.addEventListener("click", function() {
     reiniciarTelaInicial();
 });
 
+var contagem=0;
+
+idBotaoNovoJovo.addEventListener("click", function() {
+    
+    if(contagem<10){
+    montagemForca(contagem,'initial');
+    contagem++;
+    return;
+    }
+
+    else contagem=0;
+
+      
+
+});
+
 
 function telaAdicionarPalavra(){
 
@@ -61,14 +80,35 @@ function telaAdicionarPalavra(){
         document.querySelector(".botaoIniciar").style.display='none';
 
         document.querySelector('.avisoDigitacao').value="";
-
-        
-    document.querySelector('.botaoNovoJovo').style.display='none';
-    document.querySelector('.botaoDesistir').style.display='none';
-
+            
+        document.querySelector('.botaoNovoJovo').style.display='none';
+        document.querySelector('.botaoDesistir').style.display='none';
 
     }
 
+}
+function apagarForca(array){
+
+
+
+}
+
+function montagemForca(posicao,status){
+
+   var astemaior = document.querySelector('.astemaior');
+   var astemenor = document.querySelector('.astemenor');
+   var base = document.querySelector('.base');
+   var bracodireito = document.querySelector('.bracodireito');
+   var bracoesquerdo = document.querySelector('.bracoesquerdo');
+   var cabeca = document.querySelector('.cabeca');
+   var corda = document.querySelector('.corda');
+   var pernadireita = document.querySelector('.pernadireita');
+   var pernaesquerda = document.querySelector('.pernaesquerda');
+   var tronco = document.querySelector('.tronco');
+
+   var forca = [base,astemaior,astemenor,corda,cabeca,tronco,bracoesquerdo,bracodireito,pernaesquerda,pernadireita];
+ 
+   forca[posicao].style.display=status;
 }
 
 function telaJogo(){
