@@ -1,77 +1,158 @@
-body, html {
- 
-background: #F3F5FC;
-margin: 0px;
-position: relative;
+body{
+   width: 1440px;
+  height: 1024px;
+  list-style: none;
+  position: relative;
+  background: #F3F5FC;
 
 }
 
+input:focus{
+  outline: none;
 
-
+}
 .botaoIniciar {
+display:initial;
+position: absolute;
 
-/* Button */
-/* Auto layout */
-
-display: flex;
-flex-direction: row;
-align-items: center;
 padding: 24px;
 gap: 8px;
-justify-content: center;
-position: relative;
+
 width: 317px;
 height: 105px;
 left: 562px;
 top: 394px;
 
-/* Dark blue/dark-blue-300 */
 
 background: #0A3871;
 border-radius: 24px;
 
-/* Button */
 
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 19px;
-text-align: right;
-
-/* White */
-
-color: #FFFFFF;
-
-}
-
-.botaoAdicionarPalavra{
-  /* Button */
-
-
-width: 269px;
-height: 57px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 19px;
-display: flex;
 align-items: center;
 text-align: center;
-
-/* Dark blue/dark-blue-300 */
-
-color: #0A3871;
-
-
-/* Inside auto layout */
+color: #FFFFFF;
 
 flex: none;
 order: 0;
 flex-grow: 1;
 
+}
+.botaoCancelar{
+  display: none;
+  position: absolute;
+  margin-left: 722px;
+  margin-top: 450px;
+  
+flex-direction: column;
+align-items: center;
+padding: 24px;
+gap: 8px;
+
+width: 332px;
+height: 67px;
+
+/* Dark blue/dark-blue-300 */
+
+border: 1px solid #0A3871;
+border-radius: 24px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+color: #0A3871;
+flex-grow: 1;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+}
+
+.invisivel{
+  display: none;
+}
+
+.botaoSalvarIniciar{
+
+  display: none;
+  position: absolute;
+  margin-left: 376px;
+  margin-top: 450px;
+  padding: 24px;
+  gap: 8px;
+  
+  width: 332px;
+  height: 67px;
+  
+  
+  /* Dark blue/dark-blue-300 */
+  
+  background: #0A3871;
+  border-radius: 24px;
+  
+  flex-direction: column;
+  align-items: center;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  
+  /* White */
+  
+  color: #FFFFFF;
+  
+  
+  /* Inside auto layout */
+  
+  
+  }
+  
+
+
+.botaoAdicionarPalavra{
+  display:initial;
+  position: absolute;
+
+ margin-top: 120px;
+
+padding: 24px;
+gap: 8px;
+
+width: 317px;
+height: 105px;
+left: 562px;
+top: 394px;
+
+border: 1px solid #0A3871;
+border-radius: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+align-items: center;
+text-align: center;
+
+
+color: #0A3871;
+
+
+flex: none;
+order: 0;
+flex-grow: 1;
 }
 
 button:hover {
@@ -80,18 +161,19 @@ filter: brightness(1.2);
 }
 
 button:active {
-background-color: #0A3871;
-border: 1px solid #0A3871;
-color: #0A3871;
+/*background-color: #0A3871;*/
+border: 5px solid #000000;
+/*color: #0A3871;*/
 }
 
 
 footer a {
-display: flex;
+margin-top: 280px;
+margin-left: 25px;
 width: 100%;
 color: #121219;;
 text-decoration: none;
-position: relative;
+position: absolute;
 width: 317px;
 height: 105px;
 left: 562px;
@@ -105,3 +187,43 @@ footer a:hover {
   color: blue;
 }
 
+::placeholder {
+  color: #0A3871;
+}
+
+
+.avisoDigitacao{
+  display: none;
+margin-left: 376px;
+background-color:  #F3F5FC;
+border-style:none;
+
+border-color: #F3F5FC;
+width: 413px;
+height: 48px;
+left: 376px;
+top: 256px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 150%;
+color: #0A3871;
+
+
+}
+
+
+.lateralEsquerda{
+
+
+  float:left;
+
+}
+
+.logo{
+  margin-top: 40px;
+  margin-left: 84px;
+
+}
