@@ -3,6 +3,7 @@ body{
   height: 1024px;
   list-style: none;
   position: relative;
+  align-items: center;
   background: #F3F5FC;
 
 }
@@ -116,7 +117,7 @@ text-align: center;
     display: none;
     position: absolute;
     margin-left: 376px;
-    margin-top: 500px;
+    margin-top: 160px;
     padding: 24px;
     gap: 8px;
     
@@ -153,7 +154,7 @@ text-align: center;
       display: none;
       position: absolute;
       margin-left: 722px;
-      margin-top: 500px;
+      margin-top: 160px;
       
     flex-direction: column;
     align-items: center;
@@ -183,7 +184,41 @@ text-align: center;
     
     }
 
+#oculto{
+
+background-color: #F3F5FC;
+border-style:none;
+
+margin-top: 30px;
+margin-left: 430px;
+letter-spacing: 40px;
+width: 40%;
+height: 36px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 150%;
+/* identical to box height, or 36px */
+
+text-align: center;
+
+/* Gray/gray-400 */
+
+color: #495057;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
 .botaoAdicionarPalavra{
+
+  padding: .50em 50em;
   display:initial;
   position: absolute;
 
@@ -279,14 +314,49 @@ color: #0A3871;
 
 
 .lateralEsquerda{
-
-
   float:left;
-
 }
 
 .logo{
   margin-top: 40px;
   margin-left: 84px;
+}
+
+.palavraSecreta{
+
+  text-align: center; 
+  margin-left:500px;
+  margin-top: 300px;
+
+}
+
+.letraPalavraSecreta{
+
+display:inline-block;
+padding-inline: 30px;
+margin:auto;
+text-decoration: underline #0A3871;
+
+text-align: center;
+
+text-underline-offset: 25px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 150%;
+
+
+-webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+  
+   letter-spacing: 50px;
+/*  color: #F3F5FC;*/
+color: #000000;
 
 }

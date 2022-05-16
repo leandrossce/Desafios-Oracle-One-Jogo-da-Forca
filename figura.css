@@ -1,65 +1,65 @@
 .base{
     display: none;
     position: absolute;
-    margin-top: 305px ;
+    margin-top: -10px ;
     margin-left: 575px ;
 } 
 .astemaior{
     display: none;
     position: absolute;
-    margin-top: -50px ;
+    margin-top: -365px ;
     margin-left: 653px ;
 }
 .astemenor {
     display: none;
     position: absolute;
-    margin-top: -50px ;
+    margin-top: -365px ;
     margin-left: 653.67px ;
 }
 .corda{
     display: none;
     position: absolute;
-    margin-top: -50px ;
+    margin-top: -365px ;
     margin-left: 828px ;
 }
 
 .cabeca{
     display: none;
     position: absolute;
-    margin-top: -2px ;
+    margin-top: -320px ;
     margin-left: 800px ;
 }
 
 .tronco{
     display: none;
     position: absolute;
-    margin-top: 60px ;
-    margin-left: 830px ;
+    margin-top: -260px ;
+    margin-left: 828px ;
 }   
   
 .bracodireito{
     display: none;
     position: absolute;
-    margin-top: 60px ;
-    margin-left: 831px ;
+    margin-top: -262px ;
+    margin-left: 828px ;
 }
 
 .bracoesquerdo{
     display: none;
     position: absolute;
-    margin-top: 60px ;
+    margin-top: -262px ;
     margin-left: 795px ;
 }
 .pernadireita    {
     display: none;
     position: absolute;
-    margin-top: 190px ;
-    margin-left: 831px ;
+    margin-top: -130px ;
+    margin-left: 830px ;
 }
 
 .pernaesquerda{
     display: none;
     position: absolute;
-    margin-top: 190px ;
-    margin-left: 795px ;
+    margin-top: -130px ;
+    margin-left: 794px ;
 }

@@ -1,3 +1,5 @@
+const dicionario=['Lua','Estrela','Submarino'];
+
 var campoNovaPalavra = document.querySelector("#campoNovaPalavra");
 
 var idBotaoIniciar = document.querySelector("#idBotaoIniciar");
@@ -8,6 +10,19 @@ var idBotaoCancelar = document.querySelector("#idBotaoCancelar");
 
 var idBotaoNovoJovo = document.querySelector("#idBotaoNovoJovo");
 var idBotaoDesistir = document.querySelector("#idBotaoDesistir");
+
+var idCaracteresDigitados = document.querySelector("#oculto");
+
+
+idCaracteresDigitados.addEventListener('keydown', logKey);
+
+function logKey(e) {
+  
+    idCaracteresDigitados.focus();
+
+
+  }
+
 
 
 reiniciarTelaInicial();  //iniciar os botões padrões
@@ -31,12 +46,40 @@ idBotaoDesistir.addEventListener("click", function() {
     for(var i = 0; i<10;i++)        //zera boneco
     montagemForca(9-i,'none');
 
-    reiniciarTelaInicial();         //volta a tela inicial
+    location.reload();// recarrega a URL
 });
 
-idBotaoIniciar.addEventListener("click", function() {
+function numeroAleatorio(){
+
+    return Math.floor(Math.random() * (dicionario.length));
+}
+
+function iniciarJogo(){
     
     telaJogo();
+
+    var escolhaPalavraAleatoria=numeroAleatorio();
+    var palavra;
+    palavra=dicionario[escolhaPalavraAleatoria];
+
+    for(var i =0;i<=palavra.length;){
+        carregarPalavraSecreta(palavra[palavra.length-i]);
+        i++;
+    }
+
+    idCaracteresDigitados.focus();
+
+    /*for(var i =0;i<"LEANDRO".length;i++)
+    {
+        carregarPalavraSecreta("LEANDRO"[i]);
+    }*/
+
+}
+idBotaoIniciar.addEventListener("click", function() {
+    
+    iniciarJogo();
+    
+    
 });
 
 
@@ -55,13 +98,22 @@ var contagem=0;
 
 idBotaoNovoJovo.addEventListener("click", function() {
     
+    var letraPalavraSecreta = document.querySelectorAll(".letraPalavraSecreta");
+    for(var i =0;i<letraPalavraSecreta.length;i++)
+    letraPalavraSecreta[i].outerHTML="";
+
+
+    iniciarJogo();
+    
+
+    /*
     if(contagem<10){
     montagemForca(contagem,'initial');
     contagem++;
     return;
     }
 
-    else contagem=0;
+    else contagem=0;*/
 
       
 
@@ -124,5 +176,23 @@ function telaJogo(){
     document.querySelector('.botaoNovoJovo').style.display='initial';
     document.querySelector('.botaoDesistir').style.display='initial';
 
+
+}
+
+function insertAfter(newElement, reference) {
+    reference.parentNode.insertBefore(newElement, reference.nextSibling);
+}
+
+
+
+function carregarPalavraSecreta(letra){
+    
+  /* Testando */
+ el = document.createElement("div")
+
+el.textContent= letra;
+const div = document.querySelector(".palavraSecreta");
+el.classList.add("letraPalavraSecreta");
+insertAfter(el, div);
 
 }
