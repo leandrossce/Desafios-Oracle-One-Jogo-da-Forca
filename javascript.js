@@ -1,4 +1,4 @@
-const dicionario=['Lua','Estrela','Submarino'];
+const dicionario=['Lua','Estrela','Submarino','livro','caneta,'garfo','panela','mesa','cama','microfone','celular','martelo','bolsa','menina','garoto','pai','homem','mulher','professor','médica','estudante','ator'];
 
 var campoNovaPalavra = document.querySelector("#campoNovaPalavra");
 
