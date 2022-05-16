@@ -337,6 +337,7 @@ padding-inline: 30px;
 margin:auto;
 text-decoration: underline #0A3871;
 text-transform: uppercase;
+text-transform: full-width;
 text-align: center;
 
 text-underline-offset: 25px;
