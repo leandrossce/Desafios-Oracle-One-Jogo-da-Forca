@@ -1,5 +1,4 @@
-const dicionario=['Lua','Estrela','Submarino','livro','caneta','garfo','panela','mesa','cama','microfone','celular','martelo','bolsa','menina','garoto','pai','homem','mulher','professor','médica','estudante','ator','empresário','cachorro','gato','cavalo','tigre
-','papagaio','mico','capivara','palmeira','roseira','samambaia','capim','coqueiro','girassol','goiaba','banana','pitanga','laranja','limão','mamão','montanha'];
+const dicionario=['Lua','Estrela','Submarino','livro','caneta','garfo','panela','mesa','cama','microfone','celular','martelo','bolsa','menina','garoto','pai','homem','mulher','professor','médica','estudante','ator','empresário','cachorro','gato','cavalo','tigre','papagaio','mico','capivara','palmeira','roseira','samambaia','capim','coqueiro','girassol','goiaba','banana','pitanga','laranja','limão','mamão','montanha'];
 
 var campoNovaPalavra = document.querySelector("#campoNovaPalavra");
 
