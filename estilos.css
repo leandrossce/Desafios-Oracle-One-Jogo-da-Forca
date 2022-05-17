@@ -150,11 +150,11 @@ text-align: center;
     
     }
   
-    .botaoDesistir{
-      display: none;
-      position: absolute;
-      margin-left: 722px;
-      margin-top: 160px;
+.botaoDesistir{
+    display: none;
+    position: absolute;
+    margin-left: 722px;
+    margin-top: 160px;
       
     flex-direction: column;
     align-items: center;
@@ -185,14 +185,15 @@ text-align: center;
     }
 
 #oculto{
-
+text-transform: uppercase;
+float:left;
 background-color: #F3F5FC;
 border-style:none;
-
-margin-top: 30px;
-margin-left: 430px;
+caret-color: #F3F5FC;
+margin-top: 40px;
+margin-left: 370px;
 letter-spacing: 40px;
-width: 40%;
+width: 50%;
 height: 36px;
 
 font-family: 'Inter';
@@ -323,8 +324,8 @@ color: #0A3871;
 }
 
 .palavraSecreta{
-
   text-align: center; 
+  align-items: center;
   margin-left:500px;
   margin-top: 300px;
 
@@ -332,13 +333,11 @@ color: #0A3871;
 
 .letraPalavraSecreta{
 
-display:inline-block;
+display:inline-flex;
 padding-inline: 30px;
-margin:auto;
+margin: 0px;
 text-decoration: underline #0A3871;
 text-transform: uppercase;
-text-transform: full-width;
-text-align: center;
 
 text-underline-offset: 25px;
 
@@ -356,8 +355,38 @@ line-height: 150%;
    -ms-user-select: none;
    user-select: none;
   
-   letter-spacing: 50px;
-/*  color: #F3F5FC;*/
+   letter-spacing: 25px;
+  /*color: #F3F5FC;*/
 color: #000000;
 
 }
+
+.letraExpostaPalavraSecreta{
+
+  display:inline-flex;
+  padding-inline: 30px;
+  margin: 0px;
+  text-decoration: underline #0A3871;
+  text-transform: uppercase;
+  
+  text-underline-offset: 25px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 150%;
+  
+  
+  -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+    
+     letter-spacing: 25px;
+    color:  #0A3871;
+  /*color: #000000;*/
+  
+  }

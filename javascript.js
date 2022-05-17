@@ -13,16 +13,7 @@ var idBotaoDesistir = document.querySelector("#idBotaoDesistir");
 
 var idCaracteresDigitados = document.querySelector("#oculto");
 
-
-idCaracteresDigitados.addEventListener('keydown', logKey);
-
-function logKey(e) {
-  
-    idCaracteresDigitados.focus();
-
-
-  }
-
+var letrasdigitadas = document. getElementById('oculto');
 
 
 reiniciarTelaInicial();  //iniciar os botões padrões
@@ -40,6 +31,86 @@ document.querySelector('.botaoNovoJovo').style.display='none';
 document.querySelector('.botaoDesistir').style.display='none';
 }
 
+
+idCaracteresDigitados.addEventListener('keydown', logKey);
+
+function logKey(e) {
+  
+    idCaracteresDigitados.focus();
+
+
+  }
+
+  letrasdigitadas.addEventListener('keyup', logKey2);
+
+function logKey2(e) {
+
+    compararLetradigitadaComPalavraSecreta();
+
+  }
+
+  function toUnicode(str) {       // código adaptado de https://gist.github.com/littlee/f726f61b1e0abd319da4
+    return str.split('').map(function (value, index, array) {
+        var temp = value.charCodeAt(0).toString(16).toUpperCase();
+        if (temp.length == 2) {
+            return "00"+ temp;
+        }
+
+        if (temp.length == 3) {
+            return "0"+ temp;
+        }
+
+        if (temp.length == 1) {
+            return "000"+ temp;
+        }
+        return temp;
+    }).join('');
+}
+
+var contagem=0; //contador da forca
+
+function compararLetradigitadaComPalavraSecreta(){
+
+    var letrasJogador = letrasdigitadas.value;
+    var ultimaLetraDigitada= letrasJogador[letrasJogador.length-1]    //ultima letra digitada pelo jogador
+    var palavraSecreta = document.querySelectorAll(".letraPalavraSecreta");
+
+    
+
+    
+    for(var i =0;i<palavraSecreta.length;i++){
+        
+        if(!(ultimaLetraDigitada.toLowerCase==="undefined")){
+            if(palavraSecreta[i].textContent==ultimaLetraDigitada)
+            {
+            
+                        console.log("OK");
+                        if(contagem<10){                            //DESENHA FORCA
+                            montagemForca(contagem,'initial');
+                            contagem++;
+                     
+                        }
+                        else{location.reload();}
+             
+            }
+            
+               // if(!(palavraSecreta[i].textContent==ultimaLetraDigitada))
+                //if(contagem<10){                            //DESENHA FORCA
+                //    montagemForca(contagem,'initial');
+               //     contagem++;
+               //     return;
+               //     }
+        
+           
+        }
+
+        
+    }
+
+
+    
+
+}
 
 idBotaoDesistir.addEventListener("click", function() {
 
@@ -94,28 +165,20 @@ idBotaoCancelar.addEventListener("click", function() {
     reiniciarTelaInicial();
 });
 
-var contagem=0;
+
 
 idBotaoNovoJovo.addEventListener("click", function() {
     
-    var letraPalavraSecreta = document.querySelectorAll(".letraPalavraSecreta");
-    for(var i =0;i<letraPalavraSecreta.length;i++)
-    letraPalavraSecreta[i].outerHTML="";
+    var palavraSecreta = document.querySelectorAll(".letraPalavraSecreta");
+    letrasdigitadas.value = "";     // limpa letras digitadas o jogo anterior (campo input)
+    
+    for(var i =0;i<palavraSecreta.length;i++)
+    palavraSecreta[i].outerHTML="";
 
 
     iniciarJogo();
     
-
-    /*
-    if(contagem<10){
-    montagemForca(contagem,'initial');
-    contagem++;
-    return;
-    }
-
-    else contagem=0;*/
-
-      
+         
 
 });
 
