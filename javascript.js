@@ -140,7 +140,7 @@ function compararLetradigitadaComPalavraSecreta(){
     {
         alert("Parabéns! Você venceu!");
         alert("A palavra secreta é: " + palavra);
-         location.reload();
+         //location.reload();
     }
 
     if(contadorAuxiliar>0) return; // caso tenha feito varredura na string secreta e colorido as letras, retorne
@@ -156,7 +156,8 @@ function compararLetradigitadaComPalavraSecreta(){
     if(contagemErros>=10){
         
         alert("Infelizmente, você perdeu! Tente novamente!");
-        location.reload();}        //RECARREGA CASO A FORCA JÁ ESTEJA 100% COMPLETA
+       // location.reload();
+    }        //RECARREGA CASO A FORCA JÁ ESTEJA 100% COMPLETA
  
 }
 
