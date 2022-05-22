@@ -357,37 +357,8 @@ line-height: 150%;
    user-select: none;
   
    letter-spacing: 25px;
-  /*color: #F3F5FC;*/
-color: #000000;
+ color: #F3F5FC;
+ /*color: #000000;*/
 
 }
 
-.letraExpostaPalavraSecreta{
-
-  display:inline-flex;
-  padding-inline: 30px;
-  margin: 0px;
-  text-decoration: underline #0A3871;
-  text-transform: uppercase;
-  
-  text-underline-offset: 25px;
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 150%;
-  
-  
-  -webkit-touch-callout: none;
-     -webkit-user-select: none;
-     -khtml-user-select: none;
-     -moz-user-select: none;
-     -ms-user-select: none;
-     user-select: none;
-    
-     letter-spacing: 25px;
-    color:  #0A3871;
-  /*color: #000000;*/
-  
-  }

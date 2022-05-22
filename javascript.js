@@ -107,7 +107,9 @@ function compararLetradigitadaComPalavraSecreta(){
     for(var i =0;i<palavraSecreta.length;i++){
             if(palavraSecreta[i].textContent==ultimaLetraDigitada)
             {
+                palavraSecreta[i].style.color="#0A3871";        // colore letra encontrada
                 contadorAuxiliar++; // houve acertos na sequencia secreta, portanto, incremente o contadorAuxiliar 
+
             }
  
     }
@@ -178,6 +180,7 @@ idBotaoIniciar.addEventListener("click", function() {
 idBotaoAdicionarPalavra.addEventListener("click", function() {
     
     telaAdicionarPalavra();
+    alert(palavraSecreta);
 });
 
 idBotaoCancelar.addEventListener("click", function() {
