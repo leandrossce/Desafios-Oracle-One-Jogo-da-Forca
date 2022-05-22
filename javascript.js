@@ -4,6 +4,7 @@ var campoNovaPalavra = document.querySelector("#campoNovaPalavra");
 
 var idBotaoIniciar = document.querySelector("#idBotaoIniciar");
 var idBotaoAdicionarPalavra = document.querySelector("#idBotaoAdicionarPalavra");
+var novaPalavraUsuario = document.querySelector(".avisoDigitacao");
 
 var idBotaoSalvarIniciar = document.querySelector("#idBotaoSalvarIniciar");
 var idBotaoCancelar = document.querySelector("#idBotaoCancelar");
@@ -19,6 +20,9 @@ var letrasdigitadas = document. getElementById('oculto');
 
 var contagem=0; //contador da forca - VARIAVEL GLOBAL
 var arrayLetrasJogador = [];
+var contagemAcertos=0;
+var contagemErros=0; 
+var palavra="";
 
 
 // FIM VARIÁVEIS GLOBAIS**********************
@@ -68,6 +72,19 @@ function logKey2(e) {
   }
 
 
+  function adicionarPalavraUsuario(){
+//novaPalavraUsuario
+    //idBotaoSalvarIniciar
+    novaPalavraUsuario.focus(); // adiciona foco ao ccampo de digitação
+
+    if(novaPalavraUsuario.value.length>0){
+    dicionario.push(novaPalavraUsuario.value)
+
+    iniciarJogo();
+        
+    }
+
+  }
   
   function toUnicode(str) {       // código adaptado de https://gist.github.com/littlee/f726f61b1e0abd319da4
     return str.split('').map(function (value, index, array) {
@@ -91,39 +108,55 @@ function logKey2(e) {
 function compararLetradigitadaComPalavraSecreta(){
 
     var letrasJogador = letrasdigitadas.value;
-    var ultimaLetraDigitada= letrasJogador[letrasJogador.length-1]    //ultima letra digitada pelo jogador
+    var ultimaLetraDigitada= letrasJogador[letrasJogador.length-1].toUpperCase();    //ultima letra digitada pelo jogador
     var palavraSecreta = document.querySelectorAll(".letraPalavraSecreta");
 
+ 
     for(var i=0;i<arrayLetrasJogador.length;i++){
-        
-        if(ultimaLetraDigitada==arrayLetrasJogador[i]&&(contadorAuxiliar>0||contagem>0))  // só executa a partir da 2a letra digitada
+        compararB=arrayLetrasJogador[i].toUpperCase();
+
+     
+        if(ultimaLetraDigitada.toUpperCase()==arrayLetrasJogador[i].toUpperCase())  // só executa a partir da 2a letra digitada
         return;     // retorna caso letra já tenha sido digitada
+      
     }
 
-    arrayLetrasJogador.push(letrasdigitadas.value[letrasdigitadas.value.length-1]); // adiciona última letra digitada
+    arrayLetrasJogador.push(letrasdigitadas.value[letrasdigitadas.value.length-1].toUpperCase()); // adiciona última letra digitada
 
     var contadorAuxiliar=0;     // PARA ACERTOS DE LETRAS "SECRETAS"
-
+  
     for(var i =0;i<palavraSecreta.length;i++){
-            if(palavraSecreta[i].textContent==ultimaLetraDigitada)
+            if(palavraSecreta[i].textContent.toUpperCase()==ultimaLetraDigitada)
             {
                 palavraSecreta[i].style.color="#0A3871";        // colore letra encontrada
-                contadorAuxiliar++; // houve acertos na sequencia secreta, portanto, incremente o contadorAuxiliar 
+                contadorAuxiliar++; // houve acertos na sequencia secreta, portanto, incremente o contadorAuxiliar
+                contagemAcertos++; 
 
             }
- 
+         
     }
 
-    if(contadorAuxiliar>0)
+    if(contagemAcertos>=palavraSecreta.length-1)
     {
+        alert("Parabéns! Você venceu!");
+        alert("A palavra secreta é: " + palavra);
+         location.reload();
+    }
+
+    if(contadorAuxiliar>0) return; // caso tenha feito varredura na string secreta e colorido as letras, retorne
+    else{
         if(contagem<10){                            //DESENHA FORCA
             
             montagemForca(contagem,'initial');
             contagem++;
+            contagemErros++;
         }
-        else{location.reload();}        //RECARREGA CASO A FORCA JÁ ESTEJA 100% COMPLETA
-
     }
+
+    if(contagemErros>=10){
+        
+        alert("Infelizmente, você perdeu! Tente novamente!");
+        location.reload();}        //RECARREGA CASO A FORCA JÁ ESTEJA 100% COMPLETA
  
 }
 
@@ -136,12 +169,20 @@ function zerarboneco(){
     contagem=0;
     arrayLetrasJogador.splice(0,arrayLetrasJogador.length); // zera array
     letrasdigitadas.value="";
+    contagemAcertos=0;
+    contagemErros=0;
+    palavra="";
 }
 
 idBotaoDesistir.addEventListener("click", function() {
 
     zerarboneco();
     location.reload();// recarrega a URL
+});
+
+idBotaoSalvarIniciar.addEventListener("click", function() {
+
+  adicionarPalavraUsuario();
 });
 
 function numeroAleatorio(){
@@ -155,7 +196,7 @@ function iniciarJogo(){
     telaJogo();
     
     var escolhaPalavraAleatoria=numeroAleatorio();
-    var palavra;
+    palavra;
     palavra=dicionario[escolhaPalavraAleatoria];
 
     for(var i =0;i<=palavra.length;){
@@ -180,7 +221,8 @@ idBotaoIniciar.addEventListener("click", function() {
 idBotaoAdicionarPalavra.addEventListener("click", function() {
     
     telaAdicionarPalavra();
-    alert(palavraSecreta);
+
+   
 });
 
 idBotaoCancelar.addEventListener("click", function() {
@@ -221,7 +263,7 @@ function telaAdicionarPalavra(){
             
         document.querySelector('.botaoNovoJovo').style.display='none';
         document.querySelector('.botaoDesistir').style.display='none';
-
+    novaPalavraUsuario.focus(); // adiciona foco ao ccampo de digitação
     }
 
 }
